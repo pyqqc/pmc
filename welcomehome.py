@@ -23,7 +23,7 @@ for x in range(11):
 while True:
     time.sleep(0.5)
     pos=mc.player.getTilePos()
-    mc.postToChat("please goto home x=-13--15 y=0 z=-41-43 for 15s to fly")
+    mc.postToChat("please goto home x=-13--15 y=0 z=41-43 for 10s to fly")
     mc.postToChat("x:"+str(pos.x)+"y:"+str(pos.y)+"z:"+str(pos.z)) 
     if pos.x<=-13 and  pos.x>=-15 and pos.y==-0 and pos.z>=41 and pos.z<=43:
         mc.postToChat("welcome home")
