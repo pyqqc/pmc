@@ -2,6 +2,12 @@ from mcpi.minecraft import Minecraft
 import serial
 import csv
 import time
+import RPi.GPIO as GPIO
+
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(12,GPIO.OUT)
+
 
 mc=Minecraft.create()
 pos=mc.player.getTilePos()
@@ -84,6 +90,13 @@ class microsinging:
                 ser.write(Music[place][i].encode())
                 ser.write('A'.encode())
                 time.sleep(0.25)
+
+    def led (self,status):
+        if status[0]:
+                GPIO.output(12,GPIO.HIGH)
+                time.sleep(1)
+                GPIO.output(12,GPIO.LOW)
+                time.sleep(1)
             
 
 
@@ -107,11 +120,22 @@ while True:
     if newpos.x>Room[0] and newpos.x<Room[1] and newpos.z>Room[2] and newpos.z<Room[3]:
         ID=myhouse.getID()
         status1=[True,ID]
-        print('singing')
-        print(ID)
+        print('singing and shining')
+        
     else:
         status1=[False,-1]
-    microsinging(status1)
+        #microsinging(status1)
+        microsinging.led(status1)
+
+
+
+
+
+
+
+
+
+
     
 
 
