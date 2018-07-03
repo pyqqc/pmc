@@ -33,7 +33,7 @@ for x in range(song_number):
 
 
 
-ser=serial.Serial(port='COM3')
+#ser=serial.Serial(port='/dev/ttyUSB0')
 
 
 
@@ -81,52 +81,53 @@ class mchouse:
         
 
 
-
 class microsinging:
     def __init__(self,status):
         if status[0]:
             place=status[1]
             for i in range(16):
-                ser.write(Music[place][i].encode())
-                ser.write('A'.encode())
+                #ser.write(Music[place][i].encode())
+                #ser.write('A'.encode())
                 time.sleep(0.25)
+        self.status=status
 
-    def led (self,status):
-        if status[0]:
-                GPIO.output(12,GPIO.HIGH)
-                time.sleep(1)
-                GPIO.output(12,GPIO.LOW)
-                time.sleep(1)
+    def led (self):
+        if self.status[0]:
+            GPIO.output(12,GPIO.HIGH)
+            time.sleep(1)
+            GPIO.output(12,GPIO.LOW)
+            time.sleep(0.5)
             
 
 
-
+status1=[False,-1]
 myhouse=mchouse(mcHouse_data)
 myhouse.house()
 Room=myhouse.getrange()
 house_name=myhouse.getname()
+
 print (Room)
 
 
 
-status1=[False,-1]
+
 
 while True:
     newpos=mc.player.getTilePos()
-    print(newpos.x)
-    print(newpos.z)
+    sing=microsinging(status1)
+    sing.led()
     
-    time.sleep(2)
+    time.sleep(0.5)
     if newpos.x>Room[0] and newpos.x<Room[1] and newpos.z>Room[2] and newpos.z<Room[3]:
         ID=myhouse.getID()
         status1=[True,ID]
         print('singing and shining')
+        #microsinging(status1)
+        
         
     else:
         status1=[False,-1]
-        #microsinging(status1)
-        microsinging.led(status1)
-
+        
 
 
 
