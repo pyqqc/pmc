@@ -4,6 +4,7 @@ import time
 import csv
 import mcpi.vec3 as vec3
 import mcpi.block as block
+import Jeff.build_house_hawaiistyle as MHouse
 
 mc=Minecraft.create()
 
@@ -13,7 +14,7 @@ pos=vec3.Vec3(86,47,67)
 mc.player.setTilePos(86,47,67)
 stayed_time=0
 
-
+'''
 with open('xjergao.binvox', 'rb') as f:
     model = binvox_rw.read_as_3d_array(f)
 print(model.dims)
@@ -35,7 +36,7 @@ for y in range(model.dims[1]):
                 stringlayer=stringlayer+'0'
                 mc.setBlock(pos.x+x,pos.y+y,pos.z+z,block.AIR.id)
     print(stringlayer)
-
+'''
 
 g=open("authorized.csv","r")
 csvreader1=csv.reader(g)
@@ -48,21 +49,19 @@ def set_csv(csvname):
         return housedata
 
 
-
-
 housen=[]
 for houseamount in range(10):
     housen.append([pos.x+15*houseamount,pos.y,pos.z])
 
-speciality=[]    
+#speciality=[]    
 for a in houseid[1:]:
     housedata=set_csv(str(a[1]))   
     housen[int(a[0])-1]=[int(a[2]),int(a[3]),int(a[4])]
     
 
 for s in housen:
-    normalhouse=House(s)
-    normalhouse.buildall()
+    buildhouse=MHouse.House(s,mc)
+    buildhouse.buildall()
 
 '''
 for d in speciality:
