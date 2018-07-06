@@ -1,0 +1,11 @@
+houseid,floorcsv,x0,y0,z0
+1,R_floor.csv,161,48,98
+2,L_floor.csv,143,48,117
+3,R_floor.csv,125,48,126
+4,F_floor.csv,107,48,126
+5,F_floor.csv,89,48,117
+6,L_floor.csv,71,48,98
+7,R_floor.csv,89,48,117
+8,R_floor.csv,107,48,126
+9,L_floor.csv,125,48,126
+10,F_floor.csv,143,48,117

@@ -1,5 +1,13 @@
+from mcpi.minecraft import Minecraft
+import binvox_rw
+import time
+import csv
+import mcpi.vec3 as vec3
+import mcpi.block as block
+
 class House:
-    def __init__(self, data):
+    def __init__(self,data,mc):
+        self.mc=mc
         self.x0 = data[0]
         self.y0 = data[1]
         self.z0 = data[2]
@@ -8,6 +16,7 @@ class House:
         x0=self.x0
         y0=self.y0
         z0=self.z0
+        mc=self.mc
         for y in range(5):    
             for x in range(10):
                 mc.setBlock(x0+x,y0-2+y,z0,17)
@@ -41,6 +50,7 @@ class House:
         x0=self.x0
         y0=self.y0
         z0=self.z0
+        mc=self.mc
         for z in range(10):   
             for x in range(10):
                 mc.setBlock(x0+x,y0-2,z0+z,5)
@@ -54,6 +64,7 @@ class House:
         x0=self.x0
         y0=self.y0
         z0=self.z0
+        mc=self.mc
         for x in range(10):
             mc.setBlock(x0+x,y0-2,z0,98)
 
@@ -72,6 +83,7 @@ class House:
         x0=self.x0
         y0=self.y0
         z0=self.z0
+        mc=self.mc
         yaxis=[3,4,5,6,7,8]
         for f in yaxis:
             for z in range(17-2*f):
