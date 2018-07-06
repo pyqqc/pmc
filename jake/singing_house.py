@@ -3,14 +3,15 @@ import serial
 import csv
 import time
 import mcpi.vec3 as vec3
-import RPi.GPIO as GPIO
+#import RPi.GPIO as GPIO
 
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(12,GPIO.OUT)
+#GPIO.setmode(GPIO.BOARD)
+#GPIO.setup(12,GPIO.OUT)
 
 
-mc=Minecraft.create("192.168.0.155",4711)
+#mc=Minecraft.create("192.168.0.155",4711)
+mc=Minecraft.create()
 
 
 f=open("python.mc.csv",'r')
@@ -40,7 +41,8 @@ for x in range(song_number):
 #ser=serial.Serial(port='COM3')
 
 
-pos=vec3.Vec3(60,15,160)
+#pos=vec3.Vec3(60,15,160)
+pos=mc.player.getTilePos()
 
 
 
@@ -60,7 +62,7 @@ class mchouse:
         x=self.length
         y=self.height
         z=self.wide
-        #pos=mc.player.getTilePos()
+        
         #pos.x=poslist[0]
         #pos.y=poslist[1]
         #pos.z=poslist[2]
