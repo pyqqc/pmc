@@ -3,13 +3,13 @@ import time
 mc=Minecraft.create()
 pos=mc.player.getTilePos()
 f = open("blocks.csv","w")
-for x in range(10):
-    for y in range(10):
-        for z in range(10):
-            block=mc.getBlock(pos.x+x,pos.y+y,pos.z+z)
+for x in range(40):
+    for y in range(40):
+        for z in range(40):
+            block=mc.getBlock(pos.x-x,pos.y+y-2,pos.z-z)
             mc.setBlock(308-x,2+y,30+z,block)
             f.write(str(block))
-            if z < 9:
+            if z < 39:
                 f.write(",")
                 
         f.write("\n")

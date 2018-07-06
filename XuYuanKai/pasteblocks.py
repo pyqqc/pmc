@@ -15,8 +15,8 @@ for zrow in rows:
     for zblock in zblocks:
         z = z+1
 
-        y = xy%10
-        x = xy//10
+        y = xy%40
+        x = xy//40
         x0 = pos.x+x
         y0 = pos.y+y
         z0 = pos.z+z

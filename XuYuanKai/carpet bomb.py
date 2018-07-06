@@ -3,7 +3,7 @@ import time
 import mcpi.vec3 as vec3
 
 
-mc=Minecraft.create("192.168.0.155",4711)
+mc=Minecraft.create()
 pos=vec3.Vec3(1,15,102)
 a=0
 b=0
@@ -19,7 +19,7 @@ def bomb (x0,y0,z0):
                 mc.setBlock(x0+x,y0+y,z0+z,46)
     for x in range(1):
             for z in range(1):
-                mc.setBlock(pos.x+x+a,pos.y+1,pos.z+z,46)
+                mc.setBlock(pos.x+x+a,pos.y+1,pos.z+z,51)
 
 
 
