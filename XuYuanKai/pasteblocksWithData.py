@@ -2,7 +2,7 @@ from mcpi.minecraft import Minecraft
 import time
 mc=Minecraft.create()
 pos=mc.player.getTilePos()
-f = open("blocksWithData.csv","r")
+f = open("Church.csv","r")
 data = f.read()
 rows = data.split("\n")
 xy=0
@@ -12,11 +12,11 @@ for zrow in rows:
     zblocks = zrow.split(",")
     z = 0
     for zblock in zblocks:
-        y = xy%3
-        x = xy//3
-        x0 = pos.x+x
+        y = xy%50
+        x = xy//50
+        x0 = pos.x-x
         y0 = pos.y+y
-        z0 = pos.z+z
+        z0 = pos.z-z
         blockinfo = zblock.split("|")
         blockid = int(blockinfo[0])
         blockdata = int(blockinfo[1])

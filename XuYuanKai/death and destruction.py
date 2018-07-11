@@ -1,11 +1,8 @@
 
 from mcpi.minecraft import Minecraft
 import time
-import mcpi.vec3 as vec3
-
-
-mc=Minecraft.create("192.168.0.155",4711)
-pos=vec3.Vec3(1,15,102)
+mc=Minecraft.create()
+pos=mc.player.getTilePos()
 a=0
 b=0
 
@@ -20,7 +17,7 @@ def nuke (x0,y0,z0):
                 mc.setBlock(x0+x,y0+y,z0+z,46)
     for x in range(1):
             for z in range(1):
-                mc.setBlock(pos.x+x+a,pos.y+11,pos.z+z,51)
+                mc.setBlock(pos.x+x+a,pos.y+10,pos.z+z,152)
 
 
 
